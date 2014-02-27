@@ -1,4 +1,4 @@
 istim-virtualCoin
 =================
 
-Moeda virtual da Istim
+Moeda virtual da iStim
