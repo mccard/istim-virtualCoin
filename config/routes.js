@@ -41,7 +41,13 @@ module.exports.routes = {
   '/credit' : {
     controller: 'coin',
     action: 'credit'
+  },
+
+  '/create' : {
+    controller: 'coin',
+    action: 'create'
   }
+
 
   /*
   // But what if you want your home page to display

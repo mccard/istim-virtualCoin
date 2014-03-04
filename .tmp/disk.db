@@ -2,11 +2,18 @@
   "data": {
     "coin": [
       {
-        "userId": "jose",
-        "cash": 100.5,
-        "createdAt": "2014-03-04T19:54:10.145Z",
-        "updatedAt": "2014-03-04T19:55:03.979Z",
-        "id": 12
+        "userId": "macario",
+        "cash": 0,
+        "createdAt": "2014-03-04T20:17:37.230Z",
+        "updatedAt": "2014-03-04T20:17:37.230Z",
+        "id": 14
+      },
+      {
+        "userId": "francisco",
+        "cash": 200,
+        "createdAt": "2014-03-04T20:17:57.483Z",
+        "updatedAt": "2014-03-04T20:17:57.483Z",
+        "id": 15
       }
     ]
   },
@@ -34,7 +41,7 @@
   },
   "counters": {
     "coin": {
-      "id": 12
+      "id": 15
     }
   }
 }
