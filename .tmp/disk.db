@@ -1,0 +1,40 @@
+{
+  "data": {
+    "coin": [
+      {
+        "userId": "francisco",
+        "cash": 90,
+        "createdAt": "2014-03-04T18:21:09.985Z",
+        "updatedAt": "2014-03-04T18:42:40.027Z",
+        "id": 5
+      }
+    ]
+  },
+  "schema": {
+    "coin": {
+      "userId": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "defaultsTo": "AUTO_INCREMENT",
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime",
+        "default": "NOW"
+      },
+      "updatedAt": {
+        "type": "datetime",
+        "default": "NOW"
+      }
+    }
+  },
+  "counters": {
+    "coin": {
+      "id": 5
+    }
+  }
+}
