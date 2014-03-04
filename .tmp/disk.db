@@ -2,11 +2,11 @@
   "data": {
     "coin": [
       {
-        "userId": "francisco",
-        "cash": 90,
-        "createdAt": "2014-03-04T18:21:09.985Z",
-        "updatedAt": "2014-03-04T18:42:40.027Z",
-        "id": 5
+        "userId": "jose",
+        "cash": 100.5,
+        "createdAt": "2014-03-04T19:54:10.145Z",
+        "updatedAt": "2014-03-04T19:55:03.979Z",
+        "id": 12
       }
     ]
   },
@@ -34,7 +34,7 @@
   },
   "counters": {
     "coin": {
-      "id": 5
+      "id": 12
     }
   }
 }

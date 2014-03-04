@@ -36,6 +36,11 @@ module.exports.routes = {
   '/debit' : {
     controller: 'coin',
     action: 'debit'
+  },
+
+  '/credit' : {
+    controller: 'coin',
+    action: 'credit'
   }
 
   /*

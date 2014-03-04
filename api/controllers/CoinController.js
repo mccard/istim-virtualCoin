@@ -19,20 +19,40 @@ module.exports = {
 
   debit: function(req, res) {
     var user = req.param("userId");
-    var cash = req.param("cash");
+    var cash = parseFloat(req.param("cash"));
     //if (req.session.user) {
-      if (!user) return res.send(400,{error: 'Parameter \'userId\' missing'});
-      if (!cash) return res.send(400,{error: 'Parameter \'cash\' missing'});
+      if (!user) return res.send(400,{error: 'Parameter \'userId\' Missing'});
+      if (!cash) return res.send(400,{error: 'Parameter \'cash\' Missing'});
       Coin.findOneByUserId(/*req.session.user.id*/user).done(function(err, coin){
         if (!coin) return res.send(404,{ error: 'User Not Found'});
         if (coin.cash >= cash){
           coin.cash -= cash;
           coin.save(function(err) {
             if (err) return res.send(500,{error: 'Error Save Object'});
-            return res.send(200,coin);
           });
+          return res.send(200,coin);
         }
         return res.send(200,{error: 'Cash Insufficient'});
+      });  
+    //}
+  },
+
+  credit: function(req, res) {
+    var user = req.param("userId");
+    var cash = parseFloat(req.param("cash"));
+     //if (req.session.user) {
+      if (!user) return res.send(400,{error: 'Parameter \'userId\' Missing'});
+      if (!cash) return res.send(400,{error: 'Parameter \'cash\' Missing'});
+      Coin.findOneByUserId(/*req.session.user.id*/user).done(function(err, coin){
+        if (!coin) return res.send(404,{ error: 'User Not Found'});
+        if (cash >= 0){
+          coin.cash += cash;
+          coin.save(function(err) {
+            if (err) return res.send(500,{error: 'Error Save Object'});
+          });
+          return res.send(200,coin);
+        }
+        return res.send(200,{error: 'Cash Value Invalid'});
       });  
     //}
   },
