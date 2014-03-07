@@ -28,18 +28,56 @@ module.exports = {
         if (!cash) {
           Coin.create({userId: user, cash: 0}).done(function (err, coin) {
             if (err) return res.send(500, {error: 'Error Save Object'});
-            res.send(coin);
+            res.send(200,coin);
           });
           
         } else {
           Coin.create({userId: user, cash: cash}).done(function(err, coin) {
             if (err) return res.send(500, {error: 'Error Save Object'});
-            res.send(coin);
+            res.send(200,coin);
           });
           
         }
       });
     //}
+  },
+
+  destroy: function(req, res) {
+    var user = req.param("userId");
+    //if (req.session.user) {
+      if (!user) return res.send(400, {error: 'Parameter \'userId\' Missing'});
+      Coin.findOneByUserId(/*req.session.user.id*/user).done(function(err, coin) {
+        if (err) return res.send(500, {error: 'DB Error'});
+        if (!coin) return res.send(404, {error: 'User Not Found'});
+        coin.destroy(function(err){
+          if (err) return res.send(500, {error: 'Error Destroy Object'});
+          res.send(200,coin);
+        });
+      });
+    //}
+  },
+
+  update: function(req, res) {
+    var user = req.param("userId");
+    var cash = parseFloat(req.param("cash"));
+    var newuser = req.param("newUser");
+    if (!user) return res.send(400, {error: 'Parameter \'userId\' Missing'});
+    Coin.findOneByUserId(user).done(function (err, coin) {
+      if (err) return res.send(500, {error: 'DB Error'});
+      if (!coin) return res.send(404, {error: 'User Not Found'});
+      if (cash && !newuser) {
+        coin.cash = cash;
+      } else if (newuser && !cash) {
+        coin.userId = newuser;
+      } else if (cash && newuser) {
+        coin.userId = newuser;
+        coin.cash = cash;
+      }
+      coin.save(function(err){
+        if (err) return res.send(500, {error: 'Error Save Object'});
+        res.send(200, coin);
+      });
+    });
   },
 
   debit: function(req, res) {

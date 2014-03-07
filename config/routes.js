@@ -46,6 +46,16 @@ module.exports.routes = {
   '/create' : {
     controller: 'coin',
     action: 'create'
+  },
+
+  '/destroy' : {
+    controller: 'coin',
+    action: 'destroy'
+  },
+
+  '/update' : {
+    controller: 'coin',
+    action: 'update'
   }
 
 

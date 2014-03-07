@@ -3,16 +3,9 @@
     "coin": [
       {
         "userId": "macario",
-        "cash": 0,
-        "createdAt": "2014-03-04T20:17:37.230Z",
-        "updatedAt": "2014-03-04T20:17:37.230Z",
-        "id": 14
-      },
-      {
-        "userId": "francisco",
-        "cash": 200,
+        "cash": 1000,
         "createdAt": "2014-03-04T20:17:57.483Z",
-        "updatedAt": "2014-03-04T20:17:57.483Z",
+        "updatedAt": "2014-03-07T02:47:51.098Z",
         "id": 15
       }
     ]

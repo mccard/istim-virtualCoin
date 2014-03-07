@@ -17,5 +17,9 @@
     "main": "app.js",
     "repository": "",
     "author": "",
-    "license": ""
+    "license": "",
+    "subdomain": "virtual-coin-api",
+    "engines": {
+        "node": "0.10.26"
+    }
 }
