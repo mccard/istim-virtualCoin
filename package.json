@@ -18,6 +18,10 @@
     "repository": "",
     "author": "",
     "license": "",
+		"devDependencies": {
+    "supertest": "^0.9.0",
+    "mocha": "^1.17.1"
+  	},
     "subdomain": "virtual-coin-api",
     "engines": {
         "node": "0.10.26"
