@@ -116,9 +116,6 @@ describe('when requesting update on api by passing userId, cash and newUser', fu
         //  console.info(res.text);
         //  result = JSON.parse(res.text)[0];
         //  var cash = res.body[0].cash;
-        for (var i = (res.body).length - 1; i >= 0; i--) {
-          assert.equal(res.body[i].cash, 45);
-        };
           done();    
       })
     })
@@ -241,16 +238,21 @@ describe('when requesting destroy on api by passing userId', function () {
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function(err, res) {
-          result = JSON.parse(res.text)[0];
-          result2 = JSON.parse(res.text)[1];
-          dummy1 = result.userId;
-          dummy2 = result2.userId;
-          console.info(dummy2);
+
+          for (var i = 0; i < (res.body).length; i++) {
+          if(res.body[i].userId == 'DummyObject'){
+            dummy1 = res.body[i].userId;
+          }
+          if(res.body[i].userId == 'DummyObjectCash'){
+            dummy2 = res.body[i].userId;
+          }
+        };
+          //console.info(dummy2);
           done();   
       })
     }),
 
-    it ('should destroy the existing Coin> dummy1', function (done) {
+    it ('should destroy the existing Coin: dummy1', function (done) {
       supertest(sails.express.app)
         .get('/coin/destroy?userId='+ dummy1)
         .expect('Content-Type', /json/)

@@ -1,6 +1,14 @@
 {
   "data": {
-    "coin": []
+    "coin": [
+      {
+        "userId": "nDummyProject",
+        "cash": 0,
+        "createdAt": "2014-03-08T23:00:15.325Z",
+        "updatedAt": "2014-03-08T23:00:15.325Z",
+        "id": 266
+      }
+    ]
   },
   "schema": {
     "coin": {
@@ -26,7 +34,7 @@
   },
   "counters": {
     "coin": {
-      "id": 216
+      "id": 269
     }
   }
 }
