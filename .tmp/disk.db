@@ -2,25 +2,18 @@
   "data": {
     "coin": [
       {
-        "userId": "macario",
-        "cash": 1000,
-        "createdAt": "2014-03-04T20:17:57.483Z",
-        "updatedAt": "2014-03-07T02:47:51.098Z",
-        "id": 15
-      },
-      {
-        "userId": "teste",
-        "cash": 50,
-        "createdAt": "2014-03-07T02:04:07.333Z",
-        "updatedAt": "2014-03-07T02:04:07.333Z",
-        "id": 17
-      },
-      {
-        "userId": "teste2",
+        "userId": "francisco",
         "cash": 0,
-        "createdAt": "2014-03-07T02:44:18.421Z",
-        "updatedAt": "2014-03-07T02:44:18.421Z",
-        "id": 18
+        "createdAt": "2014-03-08T23:12:13.625Z",
+        "updatedAt": "2014-03-08T23:12:13.625Z",
+        "id": 19
+      },
+      {
+        "userId": "macario",
+        "cash": 0,
+        "createdAt": "2014-03-08T23:12:17.968Z",
+        "updatedAt": "2014-03-08T23:14:58.675Z",
+        "id": 20
       }
     ]
   },
@@ -48,7 +41,7 @@
   },
   "counters": {
     "coin": {
-      "id": 18
+      "id": 20
     }
   }
 }

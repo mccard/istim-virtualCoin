@@ -33,6 +33,11 @@ module.exports.routes = {
   // 
   // (This would also work if you had a file at: `/views/home.ejs`)
 
+	'/' :{
+		controller: 'coin',
+		action: 'index'
+	},
+
   '/debit' : {
     controller: 'coin',
     action: 'debit'
@@ -43,7 +48,7 @@ module.exports.routes = {
     action: 'credit'
   },
 
-  '/create' : {
+ '/create' : {
     controller: 'coin',
     action: 'create'
   },
