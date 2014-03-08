@@ -42,6 +42,16 @@ module.exports = {
     //}
   },
 
+show: function(req, res) {
+    var user = req.param("userId");
+      if (!user) return res.send(400, {error: 'Parameter \'userId\' Missing'});
+      Coin.findOneByUserId(/*req.session.user.id*/user).done(function(err, coin){
+        if (err) return res.send(500, {error: 'DB Error'});
+        if (coin) return res.send(200,coin);
+        else return res.send(404, {error: 'User Not Found'});
+      });
+    },
+
   destroy: function(req, res) {
     var user = req.param("userId");
     //if (req.session.user) {
