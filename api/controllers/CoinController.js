@@ -17,6 +17,12 @@
 
 module.exports = {
 
+	index: function(req,res){
+		Coin.find().done(function(err, coin){
+			res.send(coin);		
+		});		
+	},
+
   create: function(req, res) {
     var user = req.param("userId");
     var cash = parseFloat(req.param("cash"));
