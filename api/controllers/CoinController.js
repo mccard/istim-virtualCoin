@@ -72,7 +72,19 @@ show: function(req, res) {
     var cash = parseFloat(req.param("cash"));
     var newuser = req.param("newUser");
     if (!user) return res.send(400, {error: 'Parameter \'userId\' Missing'});
+
+    if(newuser) {
+
+    Coin.findOneByUserId(newuser).done(function (err, coin) {
+        if (coin) {
+         user = newuser;
+        return res.send(400, {error: 'User Already Cash Packet'});
+      }
+    });
+   }
+   
     Coin.findOneByUserId(user).done(function (err, coin) {
+      
       if (err) return res.send(500, {error: 'DB Error'});
       if (!coin) return res.send(404, {error: 'User Not Found'});
       if (cash && !newuser) {
