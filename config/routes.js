@@ -65,7 +65,7 @@ module.exports.routes = {
 
   '/show' : {
     controller: 'coin',
-    action: 'destroy'
+    action: 'show'
   }
 
 
