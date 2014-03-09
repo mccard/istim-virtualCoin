@@ -61,6 +61,11 @@ module.exports.routes = {
   '/update' : {
     controller: 'coin',
     action: 'update'
+  },
+
+  '/show' : {
+    controller: 'coin',
+    action: 'destroy'
   }
 
 

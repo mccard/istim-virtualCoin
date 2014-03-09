@@ -2,26 +2,11 @@
   "data": {
     "coin": [
       {
-<<<<<<< HEAD
-        "userId": "nDummyProject",
+        "userId": "teste",
         "cash": 0,
-        "createdAt": "2014-03-08T23:00:15.325Z",
-        "updatedAt": "2014-03-08T23:00:15.325Z",
-        "id": 266
-=======
-        "userId": "francisco",
-        "cash": 0,
-        "createdAt": "2014-03-08T23:12:13.625Z",
-        "updatedAt": "2014-03-08T23:12:13.625Z",
-        "id": 19
-      },
-      {
-        "userId": "macario",
-        "cash": 0,
-        "createdAt": "2014-03-08T23:12:17.968Z",
-        "updatedAt": "2014-03-08T23:14:58.675Z",
-        "id": 20
->>>>>>> funcao_index
+        "createdAt": "2014-03-08T23:44:04.985Z",
+        "updatedAt": "2014-03-08T23:44:04.985Z",
+        "id": 1
       }
     ]
   },
@@ -29,6 +14,9 @@
     "coin": {
       "userId": {
         "type": "string"
+      },
+      "cash": {
+        "type": "float"
       },
       "id": {
         "type": "integer",
@@ -49,11 +37,7 @@
   },
   "counters": {
     "coin": {
-<<<<<<< HEAD
-      "id": 269
-=======
-      "id": 20
->>>>>>> funcao_index
+      "id": 1
     }
   }
 }
