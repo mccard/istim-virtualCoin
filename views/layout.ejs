@@ -11,16 +11,14 @@
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
+
     <!--
 
       Stylesheets
       ========================
-
-      You can link any CSS, LESS, or image files in your `assets` directory
-      as you would normally: using <link/> tags.
-      
-    -->
-
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/style.css">
     <!--
 
       Support for LESS included by default
@@ -36,7 +34,9 @@
   </head>
 
   <body>
-
+    <div class="header-mac">
+      <h1>VIRTUAL COIN API</h1>
+    </div>
     <!-- Include the view file for the current controller/route -->
     <%- body %>
 
@@ -52,7 +52,11 @@
       Here's an example of importing a few dependencies, in order:
     -->
     <!-- Bring in the socket.io client -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+    <script src="./js/core.js"></script>
     <!-- then beef it up with some convenience logic for talking to Sails.js -->
     <script type="text/javascript" src="/js/sails.io.js"></script>
     <!-- listen on socket.io for incoming messages -->

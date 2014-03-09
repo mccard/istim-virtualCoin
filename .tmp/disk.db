@@ -1,14 +1,6 @@
 {
   "data": {
-    "coin": [
-      {
-        "userId": "teste",
-        "cash": 0,
-        "createdAt": "2014-03-08T23:44:04.985Z",
-        "updatedAt": "2014-03-08T23:44:04.985Z",
-        "id": 1
-      }
-    ]
+    "coin": []
   },
   "schema": {
     "coin": {
@@ -37,7 +29,7 @@
   },
   "counters": {
     "coin": {
-      "id": 1
+      "id": 7
     }
   }
 }
