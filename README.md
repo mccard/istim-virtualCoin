@@ -1,17 +1,13 @@
 #Istim-virtualCoin
 
-##API da Moeda virtual da Istim
+Coin manager API for the Istim Gaming Platform.
 
-###Models:
+##Deploy no NodeJitsu
 
- - Coin: 
-  - Atributos:
-   
- >     - userId
- >     - cash
-</li>
+- http://virtual-coin-api.jit.su/
 
-###Serviços oferecidos pela API:
+##Serviços oferecidos pela API:
+### Coin
 - <b> Create:</b> Cria um novo objeto no modelo coin
  - Modo de uso:
  
@@ -45,8 +41,17 @@
  
    >     show?userId=example
 
+## Dependências
+### User API
+  - Authentication
 
 
-##Deploy no NodeJitsu
+## Exemplo de coin
 
-- http://virtual-coin-api.jit.su/
+``` 
+
+   var coin = {
+    userId: "usuario1",
+    cash: "5000"
+  };
+```
