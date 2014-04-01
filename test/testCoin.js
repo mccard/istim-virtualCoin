@@ -23,8 +23,36 @@ var should = require("should");
  describe('when requesting create on api only by passing userId', function () {
 
     it ('should create an object at Model Coin with the userId given and its cash should be 0', function (done) {
+
+var options = {
+        host : "http://istim-user.nodejitsu.com",
+        port : 80,
+        path : "/user",
+        method : 'POST'
+    };
+
+     http.post(options, function(res) {
+         var body = '';
+
+         res.on('data', function(chunk) {
+             body += chunk;
+         });
+
+         res.on('end', function() {
+         response = JSON.parse(body);
+         for (var i = response.length - 1; i >= 0; i--) {
+          if(response[i].email == user){
+             id_grande = response[i].id;
+          }
+       };
+
+         });
+     }).on('error', function(e) {
+         console.log("Got error: ", e);
+     });
+
       supertest(sails.express.app)
-        .get('/Coin/create?userId=nDummyObject')
+        .post('/create?userId=nDummyObject')
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function(err, res) {
@@ -41,7 +69,7 @@ var should = require("should");
 
     it ('should create an object at Model Coin with the userId and cash given', function (done) {
       supertest(sails.express.app)
-        .get('/Coin/create?userId=nDummyObjectCash&cash=45')
+        .post('/create?userId=nDummyObjectCash&cash=45')
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function(err, res) {
@@ -58,7 +86,7 @@ var should = require("should");
 
     it ('should update the existing object with the cash given', function (done) {
       supertest(sails.express.app)
-        .get('/Coin/update?userId=nDummyObject&cash=40')
+        .put('/update?userId=nDummyObject&cash=40')
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function(err, res) {
@@ -75,7 +103,7 @@ describe('when requesting update on api by passing userId and newUser', function
 
     it ('should update the existing object with the newUser given', function (done) {
       supertest(sails.express.app)
-        .get('/Coin/update?userId=nDummyObjectCash&newUser=DummyObjectCash')
+        .put('/update?userId=nDummyObjectCash&newUser=DummyObjectCash')
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function(err, res) {
@@ -91,7 +119,7 @@ describe('when requesting update on api by passing userId, cash and newUser', fu
 
     it ('should update the existing object with the cash and newUser given', function (done) {
       supertest(sails.express.app)
-        .get('/Coin/update?userId=nDummyObject&cash=45&newUser=DummyObject')
+        .put('/update?userId=nDummyObject&cash=45&newUser=DummyObject')
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function(err, res) {
@@ -104,7 +132,7 @@ describe('when requesting update on api by passing userId, cash and newUser', fu
     })
   })
 
-  describe('when requesting /coin', function () {
+  describe('when requesting', function () {
 
     it ('should retrieve an array of "Coins"', function (done) {
       supertest(sails.express.app)
@@ -125,17 +153,19 @@ describe('when requesting update on api by passing userId, cash and newUser', fu
 
     it ('should retrieve the instance of Coin that has this userId', function (done) {
       supertest(sails.express.app)
-        .get('/coin/show?userId=DummyObject')
+        .get('/show?userId=DummyObject')
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function(err, res) {
         //  console.info(res.text);
-        //  result = JSON.parse(res.text)[0];
+          result = JSON.parse(res.text);
+          assert.equal(result.userId, 'DummyObject');
+          assert.equal(result.cash, 45);
         //  var cash = res.body[0].cash;
-        for (var i = (res.body).length - 1; i >= 0; i--) {
-          assert.equal(res.body[i].userId, 'DummyObject');
-          assert.equal(res.body[i].cash, 45);
-        };
+     //   for (var i = (res.body).length - 1; i >= 0; i--) {
+     //     assert.equal(res.body[i].userId, 'DummyObject');
+     //     assert.equal(res.body[i].cash, 45);
+     //   };
           done();    
       })
     })
@@ -145,9 +175,9 @@ describe('when requesting update on api by passing userId, cash and newUser', fu
 
     var credit;
 
-    it ('', function (done) {
+    it ('/coin', function (done) {
       supertest(sails.express.app)
-        .get('/coin/show?userId=DummyObjectCash')
+        .get('/show?userId=arroba@arroba.arroba')
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function(err, res) {
@@ -159,12 +189,12 @@ describe('when requesting update on api by passing userId, cash and newUser', fu
 
     it ('should add the amount of credit given to the user provided', function (done) {
       supertest(sails.express.app)
-        .get('/coin/credit?userId=DummyObjectCash&cash=20')
+        .post('/credit?userId=arroba@arroba.arroba&cash=20')
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function(err, res) {
           result = JSON.parse(res.text); 
-          assert.equal(result.userId, 'DummyObjectCash');
+          assert.equal(result.userId, 'arroba@arroba.arroba');
           assert.equal(result.cash, credit + 20);
           done();   
       })
@@ -172,12 +202,12 @@ describe('when requesting update on api by passing userId, cash and newUser', fu
 
     it ('the cash should be up-to-date', function (done) {
       supertest(sails.express.app)
-        .get('/coin/show?userId=DummyObjectCash')
+        .get('/show?userId=arroba@arroba.arroba')
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function(err, res) {
           result = JSON.parse(res.text);         
-          assert.equal(result.userId, 'DummyObjectCash');
+          assert.equal(result.userId, 'arroba@arroba.arroba');
           assert.equal(result.cash, credit + 20);
           done();    
       })
@@ -188,40 +218,49 @@ describe('when requesting debit on api by passing userId and cash', function () 
 
     var credit;
 
-    it ('', function (done) {
+    it ('/coin', function (done) {
       supertest(sails.express.app)
-        .get('/coin/show?userId=DummyObjectCash')
+        .get('/show?userId=arroba@arroba.arroba')
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function(err, res) {
           result = JSON.parse(res.text);    
           credit = result.cash;
+          console.info(credit);
           done();   
       })
     }),
 
     it ('should debit the cash given', function (done) {
       supertest(sails.express.app)
-        .get('/coin/debit?userId=DummyObjectCash&cash=20')
+        .post('/debit?userId=arroba@arroba.arroba&cash=20')
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function(err, res) {
-          result = JSON.parse(res.text); 
-          assert.equal(result.userId, 'DummyObjectCash');
-          assert.equal(result.cash, credit - 20);
+        //  result = JSON.parse(res.body);
+          for (var i = (res.body).length - 1; i >= 0; i--) {
+          assert.equal(res.body[i].userId, 'arroba@arroba.arroba');
+          assert.equal(res.body[i].cash, credit - 20);
+        };
+       //   assert.equal(result.userId, 'DummyObjectCash');
+       //   assert.equal(result.cash, credit - 20);
           done();   
       })
     }),
 
     it ('the cash should be up-to-date', function (done) {
       supertest(sails.express.app)
-        .get('/coin/show?userId=DummyObjectCash')
+        .get('/show?userId=arroba@arroba.arroba')
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function(err, res) {
-          result = JSON.parse(res.text);         
-          assert.equal(result.userId, 'DummyObjectCash');
-          assert.equal(result.cash, credit - 20);
+          result = JSON.parse(res.text);
+      //     for (var i = (res.body).length - 1; i >= 0; i--) {
+      //    assert.equal(res.body[i].userId, 'DummyObjectCash');
+      //    assert.equal(res.body[i].cash, credit - 20);
+      //  };      
+         assert.equal(result.userId, 'arroba@arroba.arroba');
+         assert.equal(result.cash, credit - 20);
           done();    
       })
     })
@@ -238,7 +277,7 @@ describe('when requesting destroy on api by passing userId', function () {
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function(err, res) {
-
+      //    console.info(res.body);
           for (var i = 0; i < (res.body).length; i++) {
           if(res.body[i].userId == 'DummyObject'){
             dummy1 = res.body[i].userId;
@@ -254,7 +293,7 @@ describe('when requesting destroy on api by passing userId', function () {
 
     it ('should destroy the existing Coin: dummy1', function (done) {
       supertest(sails.express.app)
-        .get('/coin/destroy?userId='+ dummy1)
+        .del('/coin/destroy?userId='+ dummy1)
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function(err, res) {
@@ -266,7 +305,7 @@ describe('when requesting destroy on api by passing userId', function () {
 
     it ('should destroy the existing Coin: dummy2', function (done) {
       supertest(sails.express.app)
-        .get('/coin/destroy?userId='+ dummy2)
+        .del('/destroy?userId='+ dummy2)
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function(err, res) {
@@ -278,7 +317,7 @@ describe('when requesting destroy on api by passing userId', function () {
 
     it ('the destroyed instance should not be there anymore', function (done) {
       supertest(sails.express.app)
-        .get('/coin/show?userId=DummyObject')
+        .get('/show?userId=DummyObject')
         .expect('Content-Type', /json/)
         .expect(404)
         .end(function(err, res) {

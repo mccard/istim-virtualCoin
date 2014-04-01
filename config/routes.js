@@ -37,32 +37,32 @@ module.exports.routes = {
 		view: 'home/index'
 	},
 
-  '/debit' : {
+  'post /debit' : {
     controller: 'coin',
     action: 'debit'
   },
 
-  '/credit' : {
+  'post /credit' : {
     controller: 'coin',
     action: 'credit'
   },
 
- '/create' : {
+ 'post /create' : {
     controller: 'coin',
     action: 'create'
   },
 
-  '/destroy' : {
+  'delete /destroy' : {
     controller: 'coin',
     action: 'destroy'
   },
 
-  '/update' : {
+  'put /update' : {
     controller: 'coin',
     action: 'update'
   },
 
-  '/show' : {
+  'get /show' : {
     controller: 'coin',
     action: 'show'
   }
