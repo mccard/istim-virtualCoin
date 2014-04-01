@@ -145,6 +145,7 @@ describe('when requesting update on api by passing userId, cash and newUser', fu
  
   describe('when requesting credit on api by passing userId and cash', function () {
 
+    this.timeout(20000);
     var credit;
 
     it ('/coin', function (done) {
@@ -188,6 +189,7 @@ describe('when requesting update on api by passing userId, cash and newUser', fu
 
 describe('when requesting debit on api by passing userId and cash', function () {
 
+    this.timeout(20000);
     var credit;
 
     it ('/coin', function (done) {

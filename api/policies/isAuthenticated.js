@@ -16,7 +16,6 @@ var id_grande;
      
      var response = 'nothing';
      var url = 'http://istim-user.nodejitsu.com/user';
-     var url2 = 'http://istim-user.nodejitsu.com/getAllAuthenticated';
 
      http.get(url, function(res) {
          var body = '';

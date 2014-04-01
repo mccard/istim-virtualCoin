@@ -1,5 +1,5 @@
 var coinPage = angular.module('coin-page', []);
-var url_default = 'http://virtual-coin-api.jit.su/coin';
+var url_default = 'http://localhost:1337/coin';
 function mainController($scope, $http) {
 	$scope.formData = {};
 	$http.get(url_default+'/')
