@@ -62,7 +62,7 @@ var id_grande;
       return next();
     }
     else {
-      return res.forbidden('You are not the game owner.');
+      return res.forbidden('You are not permitted to perform this action.');
     }
     });
   });
