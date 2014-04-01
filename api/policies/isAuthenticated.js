@@ -62,7 +62,7 @@ var id_grande;
       return next();
     }
     else {
-      return res.forbidden('You are not permitted to perform this action.');
+      error();
     }
     });
   });
@@ -73,7 +73,9 @@ var id_grande;
          console.log("Got error: ", e);
      });
 
-    
+     var error = function(){
+            return res.forbidden('You are not permitted to perform this action.');
+     }
 
 
   // User is allowed, proceed to the next policy, 
