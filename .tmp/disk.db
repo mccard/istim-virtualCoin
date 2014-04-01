@@ -66,31 +66,24 @@
       },
       {
         "userId": "arroba@arroba.arroba",
-        "cash": 20,
+        "cash": 360,
         "createdAt": "2014-03-29T14:38:11.115Z",
-        "updatedAt": "2014-04-01T02:25:18.383Z",
+        "updatedAt": "2014-04-01T06:17:46.435Z",
         "id": 187
       },
       {
         "userId": "moedacliente@istim.com",
-        "cash": 20,
+        "cash": 120,
         "createdAt": "2014-04-01T01:44:15.702Z",
-        "updatedAt": "2014-04-01T01:44:15.702Z",
+        "updatedAt": "2014-04-01T06:11:36.574Z",
         "id": 214
       },
       {
-        "userId": "nDummyObject",
-        "cash": 0,
-        "createdAt": "2014-04-01T02:05:04.426Z",
-        "updatedAt": "2014-04-01T02:05:04.426Z",
-        "id": 237
-      },
-      {
-        "userId": "nDummyObjectCash",
-        "cash": 45,
-        "createdAt": "2014-04-01T02:05:04.451Z",
-        "updatedAt": "2014-04-01T02:05:04.451Z",
-        "id": 238
+        "userId": "games-user@istim.com.br",
+        "cash": 40,
+        "createdAt": "2014-04-01T05:58:03.957Z",
+        "updatedAt": "2014-04-01T05:58:09.233Z",
+        "id": 257
       }
     ]
   },
@@ -121,7 +114,7 @@
   },
   "counters": {
     "coin": {
-      "id": 238
+      "id": 259
     }
   }
 }

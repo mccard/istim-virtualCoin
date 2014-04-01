@@ -23,34 +23,6 @@ var should = require("should");
  describe('when requesting create on api only by passing userId', function () {
 
     it ('should create an object at Model Coin with the userId given and its cash should be 0', function (done) {
-
-var options = {
-        host : "http://istim-user.nodejitsu.com",
-        port : 80,
-        path : "/user",
-        method : 'POST'
-    };
-
-     http.post(options, function(res) {
-         var body = '';
-
-         res.on('data', function(chunk) {
-             body += chunk;
-         });
-
-         res.on('end', function() {
-         response = JSON.parse(body);
-         for (var i = response.length - 1; i >= 0; i--) {
-          if(response[i].email == user){
-             id_grande = response[i].id;
-          }
-       };
-
-         });
-     }).on('error', function(e) {
-         console.log("Got error: ", e);
-     });
-
       supertest(sails.express.app)
         .post('/create?userId=nDummyObject')
         .expect('Content-Type', /json/)
@@ -257,7 +229,7 @@ describe('when requesting debit on api by passing userId and cash', function () 
           result = JSON.parse(res.text);
       //     for (var i = (res.body).length - 1; i >= 0; i--) {
       //    assert.equal(res.body[i].userId, 'DummyObjectCash');
-      //    assert.equal(res.body[i].cash, credit - 20);
+      //    assert.equal(res.body[i].cash,getAllAuthenticated credit - 20);
       //  };      
          assert.equal(result.userId, 'arroba@arroba.arroba');
          assert.equal(result.cash, credit - 20);

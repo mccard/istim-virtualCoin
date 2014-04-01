@@ -32,29 +32,42 @@ var id_grande;
         	   id_grande = response[i].id;
         	}
        };
-                      http.get(url2, function(res) {
-                       var body = '';
 
-                       res.on('data', function(chunk) {
-                           body += chunk;
-                       });
+       var querystring = require('querystring');
 
-                       res.on('end', function() {
-                       response = JSON.parse(body);
-                       for (var i = response.length - 1; i >= 0; i--) {
-                        console.log("IDGRANDE!!!", id_grande);
-                        console.log("response[i].userId", response[i].userId);
-                          if(response[i].userId == id_grande){
-                              return next();
-                          }
-                     };
-                       return res.forbidden('You are not permitted to perform this action.');
+       var data = querystring.stringify({
+        userId: id_grande
+       })
+                    var options = {
+    hostname: 'istim-user.nodejitsu.com',
+    port: 80,
+    path: '/authenticated',
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Length': Buffer.byteLength(data)
+    }
+  };
+      var str = '';
 
-                       });
-                   }).on('error', function(e) {
-                       console.log("Got error: ", e);
-                   });
+  var req = http.request(options, function(res) {
+    res.setEncoding('utf8');
+    res.on('data', function (chunk) {
+      str += chunk;
+    });
 
+    res.on('end', function() {
+    var users = JSON.parse(str);
+    if(users.authenticated == "yes"){
+      return next();
+    }
+    else {
+      return res.forbidden('You are not the game owner.');
+    }
+    });
+  });
+  req.write(data);
+  req.end();
          });
      }).on('error', function(e) {
          console.log("Got error: ", e);

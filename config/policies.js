@@ -21,8 +21,7 @@ module.exports.policies = {
   	 '*': true,
 
   	credit: 'isAuthenticated',
-  	debit: 'isAuthenticated',
-  	update: 'isAuthenticated'
+  	debit: 'isAuthenticated'
   }
 
   /*
