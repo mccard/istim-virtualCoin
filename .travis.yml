@@ -1,9 +1,6 @@
 before_script:
   - npm install -g mocha
   - sails lift&
-  "scripts": {
-  "test": "mocha -R spec"
-},
 language: node_js
 node_js:
   - "0.10"
