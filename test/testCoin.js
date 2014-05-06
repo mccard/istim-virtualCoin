@@ -23,7 +23,7 @@ var should = require("should");
  describe('when requesting create on api only by passing userId', function () {
 
     it ('should create an object at Model Coin with the userId given and its cash should be 0', function (done) {
-      supertest('localhost:1337')
+      supertest(sails.express.app)
         .post('/create?userId=nDummyObject')
         .expect('Content-Type', /json/)
         .expect(200)
