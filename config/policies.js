@@ -18,10 +18,7 @@ module.exports.policies = {
   // (`true` allows public access) 
  
   CoinController: {
-  	 '*': true,
-
-  	credit: 'isAuthenticated',
-  	debit: 'isAuthenticated'
+  	 '*': true
   }
 
   /*
