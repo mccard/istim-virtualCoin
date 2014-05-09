@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/mccard/istim-virtualCoin.svg?branch=master)](https://travis-ci.org/mccard/istim-virtualCoin)
 #Istim-virtualCoin
 
 Coin manager API for the Istim Gaming Platform.
