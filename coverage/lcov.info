@@ -204,9 +204,9 @@ LH:1
 BRDA:39,1,0,1
 BRDA:39,1,1,1
 BRDA:55,2,0,1
-BRDA:55,2,1,0
+BRDA:55,2,1,1
 BRF:4
-BRH:3
+BRH:4
 end_of_record
 TN:
 SF:/home/matheus/Documentos/Desenvolvimento_de_Sistema_WEB/sails_js/istim-virtualCoin/fork_virtual_coin/istim-virtualCoin/config/log.js

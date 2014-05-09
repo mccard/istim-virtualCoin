@@ -15,8 +15,7 @@
 
   "scripts": {
     "start": "node app.js",
-    "debug": "node debug app.js",
-    "test": "mocha -R spec"
+    "debug": "node debug app.js"
   },
   
   "main": "app.js",
