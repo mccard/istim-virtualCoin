@@ -68,7 +68,7 @@
         "userId": "arroba@arroba.arroba",
         "cash": 520,
         "createdAt": "2014-03-29T14:38:11.115Z",
-        "updatedAt": "2014-05-06T14:07:56.495Z",
+        "updatedAt": "2014-05-09T17:22:30.044Z",
         "id": 187
       },
       {
@@ -121,7 +121,7 @@
   },
   "counters": {
     "coin": {
-      "id": 302
+      "id": 336
     }
   }
 }

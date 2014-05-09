@@ -123,19 +123,26 @@ module.exports = function (grunt) {
 
   // Get path to core grunt dependencies from Sails
   var depsPath = grunt.option('gdsrc') || 'node_modules/sails/node_modules';
-  grunt.loadTasks(depsPath + '/grunt-contrib-clean/tasks');
-  grunt.loadTasks(depsPath + '/grunt-contrib-copy/tasks');
-  grunt.loadTasks(depsPath + '/grunt-contrib-concat/tasks');
-  grunt.loadTasks(depsPath + '/grunt-sails-linker/tasks');
-  grunt.loadTasks(depsPath + '/grunt-contrib-jst/tasks');
-  grunt.loadTasks(depsPath + '/grunt-contrib-watch/tasks');
-  grunt.loadTasks(depsPath + '/grunt-contrib-uglify/tasks');
-  grunt.loadTasks(depsPath + '/grunt-contrib-cssmin/tasks');
-  grunt.loadTasks(depsPath + '/grunt-contrib-less/tasks');
-  grunt.loadTasks(depsPath + '/grunt-contrib-coffee/tasks');
 
   // Project configuration.
   grunt.initConfig({
+
+    coveralls: {
+    options: {
+      // LCOV coverage file relevant to every target
+      src: 'coverage-results/lcov.info',
+
+      // When true, grunt-coveralls will only print a warning rather than
+      // an error, to prevent CI builds from failing unnecessarily (e.g. if
+      // coveralls.io is down). Optional, defaults to false.
+      force: false
+    },
+    your_target: {
+      // Target-specific LCOV coverage file
+      src: 'test/testCoin.js'
+    },
+  },
+
     pkg: grunt.file.readJSON('package.json'),
 
     copy: {
