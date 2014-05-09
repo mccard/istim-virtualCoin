@@ -1,5 +1,6 @@
 before_script:
   - npm install -g mocha
+  - npm install -g istanbul
   - make test-coveralls
 language: node_js
 node_js:
