@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/mccard/istim-virtualCoin.svg?branch=master)](https://travis-ci.org/mccard/istim-virtualCoin)
+[![Build Status](https://travis-ci.org/mccard/istim-virtualCoin.svg?branch=master)](https://travis-ci.org/mccard/istim-virtualCoin) 
+[![Coverage Status](https://coveralls.io/repos/mccard/istim-virtualCoin/badge.png?branch=master)](https://coveralls.io/r/mccard/istim-virtualCoin?branch=master)
 #Istim-virtualCoin
 
 Coin manager API for the Istim Gaming Platform.
